@@ -182,11 +182,11 @@ function App() {
                   </span>
                 </h2>
                 <div className="rank">
-                  Current Rank: <strong>#{getMetricRank("CurrentAmount", "TargetAmount")}</strong>
+                  Эрэмбэ: <strong>#{getMetricRank("CurrentAmount", "TargetAmount")}</strong>
                 </div>
               </div>
               <div className="total-points-badge">
-                ⭐ {selectedData.Points || "N/A"} pts
+                ⭐ {selectedData.Points || "N/A"} оноо
               </div>
             </div>
             <PointsMeter points={Number(selectedData.Points) || 0} />
@@ -204,7 +204,7 @@ function App() {
               <div className="info-grid">
                 {/* Sales */}
                 <div className="metric-block">
-                  <span className="info-label">💰 Sales</span>
+                  <span className="info-label">💰 Борлуулалт</span>
                   <span className="info-value">
                     {formatNumber(cleanNumber(selectedData.CurrentAmount))}₮ / {formatNumber(cleanNumber(selectedData.TargetAmount))}₮
                   </span>
@@ -223,7 +223,7 @@ function App() {
                 </div>
                 {/* Coverage */}
                 <div className="metric-block">
-                  <span className="info-label">🏆 Coverage</span>
+                  <span className="info-label">🏆 Хамрах хүрээ</span>
                   <span className="info-value">
                     {formatNumber(cleanNumber(selectedData.ercCurrent))} / {formatNumber(cleanNumber(selectedData.ercTarget))}
                   </span>
@@ -242,7 +242,7 @@ function App() {
                 </div>
                 {/* Strike Rate */}
                 <div className="metric-block">
-                  <span className="info-label">⚡ Strike Rate</span>
+                  <span className="info-label">⚡ Гүйцэтгэлийн хувь</span>
                   <span className="info-value">
                     {formatNumber(cleanNumber(selectedData.strCurrent))} / {formatNumber(cleanNumber(selectedData.strTarget))}
                   </span>
@@ -261,7 +261,7 @@ function App() {
                 </div>
                 {/* Audit */}
                 <div className="metric-block">
-                  <span className="info-label">📸 Audit (Photos)</span>
+                  <span className="info-label">📸 Аудит (Зураг)</span>
                   <span className="info-value">
                     {formatNumber(cleanNumber(selectedData.auditCurrent))} / {formatNumber(cleanNumber(selectedData.auditTarget))}
                   </span>
@@ -280,7 +280,7 @@ function App() {
                 </div>
                 {/* New Brand Customers */}
                 <div className="metric-block">
-                  <span className="info-label">🆕 New Brand Customers</span>
+                  <span className="info-label">🆕 Шинэ брэндийн харилцагч</span>
                   <span className="info-value">
                     {formatNumber(cleanNumber(selectedData.newBrandCus))}
                   </span>
@@ -303,7 +303,7 @@ function App() {
                 </div>
                 {/* Customers Visited */}
                 <div className="metric-block">
-                  <span className="info-label">👥 Customers Visited (Yesterday)</span>
+                  <span className="info-label">👥 Өчигдөр очсон харилцагч</span>
                   <span className="info-value">{selectedData.CustomerVisit || "N/A"}</span>
                 </div>
               </div>

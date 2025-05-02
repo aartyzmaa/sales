@@ -18,8 +18,8 @@ export default function PointsMeter({ points = 0 }) {
   return (
     <div className="points-meter-root">
       <div className="points-meter-labels">
-        <span>Points</span>
-        <span className="points-meter-current">{points} pts</span>
+        <span>Оноо</span>
+        <span className="points-meter-current">{points} оноо</span>
       </div>
       <div className="points-meter-bar-outer">
         <div className="points-meter-bar-inner" style={{ width: `${percent}%` }} />
@@ -42,8 +42,8 @@ export default function PointsMeter({ points = 0 }) {
       </div>
       <div className="points-meter-next">
         {next
-          ? `🎯 ${toNext} points to next reward (${next.label.replace(/^\D+/, "")} pts)`
-          : "🏆 All rewards unlocked!"}
+          ? `🎯 Дараагийн шагнал хүртэл ${toNext} оноо (${next.label.replace(/^\D+/, "")} оноо)`
+          : "🏆 Бүх шагналуудыг авсан!"}
       </div>
     </div>
   );
