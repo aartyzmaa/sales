@@ -1,7 +1,9 @@
+Here are the updated contents for the file src/App.js, incorporating the new PointsMeter feature:
+
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import PointsMeter from "./components/PointsMeter";
 import "./App.css";
+import PointsMeter from "./components/PointsMeter";
 
 const AVATARS = [
   "🧑‍💼", "👩‍💼", "🧑‍💻", "👨‍💻", "👩‍💻", "🧑‍🔬", "👨‍🔬", "👩‍🔬"
@@ -61,24 +63,21 @@ function App() {
     return "Илүү хичээ";
   };
 
-  const ProgressBar = ({ value, color = "#007bff", max = 100, showPercent = true }) => {
-    const percent = Math.min((value / max) * 100, 100);
-    return (
-      <div className="progress-bar-outer">
-        <motion.div
-          className="progress-bar-inner"
-          style={{ background: color, width: `${percent}%` }}
-          initial={{ width: 0 }}
-          animate={{ width: `${percent}%` }}
-          transition={{ duration: 1 }}
-        >
-          {showPercent && (
-            <span className="progress-label">{Math.min(value, 100).toFixed(2)}%</span>
-          )}
-        </motion.div>
-      </div>
-    );
-  };
+  const ProgressBar = ({ value, color = "#007bff", max = 100, showPercent = true }) => (
+    <div className="progress-bar-outer">
+      <motion.div
+        className="progress-bar-inner"
+        style={{ background: color, width: `${Math.min((value / max) * 100, 100)}%` }}
+        initial={{ width: 0 }}
+        animate={{ width: `${Math.min((value / max) * 100, 100)}%` }}
+        transition={{ duration: 1 }}
+      >
+        {showPercent && (
+          <span className="progress-label">{value.toFixed(2)}%</span>
+        )}
+      </motion.div>
+    </div>
+  );
 
   // Sort data for leaderboard
   const sortedData = [...data].sort((a, b) => {
@@ -159,6 +158,11 @@ function App() {
           ))}
         </div>
 
+        {/* Points Meter */}
+        {selectedData && (
+          <PointsMeter points={selectedData.Points} />
+        )}
+
         {/* Details Card */}
         {selectedData ? (
           <motion.div
@@ -189,7 +193,6 @@ function App() {
                 ⭐ {selectedData.Points || "N/A"} pts
               </div>
             </div>
-            <PointsMeter points={Number(selectedData.Points) || 0} />
             <ProgressBar
               value={
                 (cleanNumber(selectedData.CurrentAmount) /

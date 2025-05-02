@@ -1,0 +1,61 @@
+.points-meter-root {
+  margin: 16px 0 8px 0;
+  padding: 18px 20px 12px 20px;
+  background: linear-gradient(90deg, #f7fafd 60%, #e3f0ff 100%);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px 0 rgba(0,123,204,0.07);
+  position: relative;
+}
+
+.points-meter-labels {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #007acc;
+  margin-bottom: 8px;
+}
+
+.points-meter-current {
+  font-size: 1.1em;
+}
+
+.points-meter-bar-outer {
+  position: relative;
+  height: 18px;
+  background: #e3f0ff;
+  border-radius: 9px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.points-meter-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #ffe082 40%, #ffd700 100%);
+  border-radius: 9px 0 0 9px;
+  transition: width 0.8s cubic-bezier(.4,2,.3,1);
+}
+
+.points-meter-milestone {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  font-size: 1.1em;
+  color: #ffc107;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 2;
+  text-shadow: 0 2px 8px #fffbe6;
+  transition: color 0.3s;
+}
+.points-meter-milestone.reached {
+  color: #4caf50;
+  text-shadow: 0 2px 8px #e3f0ff;
+}
+
+.points-meter-next {
+  margin-top: 6px;
+  font-size: 1.04em;
+  color: #007acc;
+  font-weight: 500;
+  text-align: right;
+}
