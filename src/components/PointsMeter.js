@@ -21,29 +21,36 @@ export default function PointsMeter({ points = 0 }) {
         <span>Оноо</span>
         <span className="points-meter-current">{points} оноо</span>
       </div>
+      {/* Milestones above the bar */}
+      <div className="points-meter-milestones-row">
+        {MILESTONES.map((m, i) => (
+          <div
+            key={m.value}
+            className={`points-meter-milestone-label${points >= m.value ? " reached" : ""}`}
+            style={{
+              left: `${(m.value / max) * 100}%`,
+              transform: 'translateX(-50%)'
+            }}
+          >
+            {m.label}
+          </div>
+        ))}
+      </div>
       <div className="points-meter-bar-outer">
-        <div className="points-meter-bar-inner" style={{ width: `${percent}%` }} />
-        {MILESTONES.map((m, i) => {
-          const isLast = i === MILESTONES.length - 1;
-          return (
-            <div
-              key={m.value}
-              className={`points-meter-milestone${points >= m.value ? " reached" : ""}`}
-              style={
-                isLast
-                  ? { right: 0, left: "auto", transform: "translateY(-60%)" }
-                  : { left: `${(m.value / max) * 100}%`, transform: "translate(-50%, -60%)" }
-              }
-            >
-              <span>{m.label}</span>
-            </div>
-          );
-        })}
+        <div
+          className="points-meter-bar-inner"
+          style={{ width: `${percent}%` }}
+        />
       </div>
       <div className="points-meter-next">
         {next
           ? `🎯 Дараагийн шагнал хүртэл ${toNext} оноо (${next.label.replace(/^\D+/, "")} оноо)`
           : "🏆 Бүх шагналуудыг авсан!"}
+      </div>
+      <div className="points-meter-legend">
+        <span>🎁 500: Бэлэг</span>
+        <span>🏅 1000: Шагнал</span>
+        <span>👑 2000: Тусгай шагнал</span>
       </div>
     </div>
   );
